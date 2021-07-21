@@ -3,9 +3,7 @@ import functions
 print("Random 100: {0}".format(functions.roll_dice(100)))
 
 numbers = [1, 1, 2, 3, 5, 8, 13]
-players = [
-    "Player1", "Player2", "Player3", "Player4", "Player5", "Player6", "Player7"
-]
+players = ["Player1", "Player2", "Player3", "Player4", "Player5", "Player6", "Player7"]
 
 # players.extend(numbers) # fusiona ambas listas
 players.append("Player" +

@@ -1,5 +1,4 @@
 from Question import Question
-from Player import Player
 
 question_prompts = [
     "Pregunta 1\n(a) Respuesta 1\n(b) Respuesta 2\n(c) Respuesta 3\n",

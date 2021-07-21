@@ -1,2 +1,3 @@
 # crispy-garbanzo
-Testing things
+
+Learning Python.

@@ -2,6 +2,7 @@ import random
 
 file_name = "players.txt"
 
+
 def calc():
     num1 = float(input("num1: "))
     num2 = float(input("num2: "))
@@ -115,15 +116,18 @@ def append_file():
         random.choice(range(32)), random_role()))
     players_file.close()
 
+
 def write_file():
     players_file = open(file_name, "w")
     players_file.write("Player{0} - {1}\n".format(
         random.choice(range(32)), random_role()))
     players_file.close()
 
+
 def random_role():
     roles = ["Tank", "Healer", "Support", "Stealth", "Leader", "Controller"]
     return random.choice(roles)
+
 
 def roll_dice(num):
     return random.randint(1, num)
