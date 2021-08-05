@@ -5,7 +5,7 @@ def check_balance(brackets):
             balanced += 1
         elif bracket == ']':
             balanced -= 1
-            
+
     return balanced == 0
 
 
