@@ -71,3 +71,4 @@ kth_max = 0
 test_list = [40, 35, 82, 14, 22, 66, 53]
 test_list.sort()
 kth_max = test_list[-k]
+print("Kth Max =", kth_max)
