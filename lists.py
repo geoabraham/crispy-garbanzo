@@ -88,3 +88,12 @@ list2 = [10, 60, 20, 50]
 sum_list = [(n1, n2) for n1 in list1 for n2 in list2 if n1 + n2 > 100]
 
 print(sum_list)
+
+
+x = 1
+y = 1
+z = 2
+n = 3
+
+permutations = [[i, j, k] for i in range(x+1) for j in range(y+1) for k in range(z+1) if sum((i, j, k)) != n]
+print(permutations)

@@ -1,5 +1,6 @@
 import random
 import time
+from functools import wraps
 
 file_name = "players.txt"
 
@@ -167,15 +168,15 @@ def func(a, b=10, *, kw1, kw2=100, **kwargs):
     print(a, b, kw1, kw2, kwargs)
 
 
-def func(*args):
+def func_args(*args):
     print(args)
 
 
-def func(**kwargs):
+def func_kwargs(**kwargs):
     print(kwargs)
 
 
-def func(*args, **kwargs):
+def func_args_kwargs(*args, **kwargs):
     print(args, kwargs)
 
 
@@ -189,6 +190,17 @@ def time_it(fn, *args, rep=5, **kwargs):
     return (end - start) / rep
 
 
+@logged
+@timed
+def fact(n):
+    from operator import mul
+    from functools import reduce
+
+    return reduce(mul, range(1, n+1))
+
+
+@logged
+@timed
 def compute_powers_1(n, *, start=1, end):
     # using a for loop
     results = []
@@ -197,14 +209,30 @@ def compute_powers_1(n, *, start=1, end):
     return results
 
 
+@logged
+@timed
 def compute_powers_2(n, *, start=1, end):
     # using a list comprehension
     return [n**i for i in range(start, end)]
 
 
+@logged
+@timed
 def compute_powers_3(n, *, start=1, end):
     # using a generator expression
     return (n**i for i in range(start, end))
+
+
+def counter(fn):
+    count = 0
+
+    def inner(*args, **kwargs):
+        nonlocal count
+        count += 1
+        print(f'Function {fn.__name__} was called {count} times')
+        return fn(*args, **kwargs)
+
+    return inner
 
 
 # calc()
@@ -216,7 +244,7 @@ def compute_powers_3(n, *, start=1, end):
 
 # help(func)
 
-func(10, 12, 13, d=30)
+# func(10, 12, 13, d=30)
 
 # compute_powers_1(2, end=5)
 
