@@ -58,6 +58,17 @@ def compute_powers(n, *, start=1, end):
     return [n**i for i in range(start, end)]
 
 
-fact(20000)
-compute_powers(2, end=20000)
+fib_cache = {1: 1, 2: 1}
 
+
+def fib(n):
+    if n not in fib_cache:
+        print(f'Calculating fib({n})')
+        fib_cache[n] = fib(n-1) + fib(n-2)
+
+    return fib_cache[n]
+
+
+print(fib(100))
+# fact(20000)
+# compute_powers(2, end=20000)
