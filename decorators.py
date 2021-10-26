@@ -40,6 +40,17 @@ def counter(fn):
     return inner
 
 
+def memoize_fib(fib):
+    cache = {1: 1, 2: 1}
+
+    def inner(n):
+        if n not in cache:
+            cache[n] = fib(n)
+        return cache[n]
+
+    return inner
+
+
 @counter
 @timed
 @logged
@@ -58,15 +69,10 @@ def compute_powers(n, *, start=1, end):
     return [n**i for i in range(start, end)]
 
 
-fib_cache = {1: 1, 2: 1}
-
-
+@memoize_fib
 def fib(n):
-    if n not in fib_cache:
-        print(f'Calculating fib({n})')
-        fib_cache[n] = fib(n-1) + fib(n-2)
-
-    return fib_cache[n]
+    print(f'Calculating fib({n})')
+    return 1 if n < 3 else fib(n-1) + fib(n-2)
 
 
 print(fib(100))
