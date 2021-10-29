@@ -40,12 +40,12 @@ def counter(fn):
     return inner
 
 
-def memoize_fib(fib):
-    cache = {1: 1, 2: 1}
+def memoize(fn):
+    cache = dict()
 
     def inner(n):
         if n not in cache:
-            cache[n] = fib(n)
+            cache[n] = fn(n)
         return cache[n]
 
     return inner
@@ -69,9 +69,8 @@ def compute_powers(n, *, start=1, end):
     return [n**i for i in range(start, end)]
 
 
-@memoize_fib
+@memoize
 def fib(n):
-    print(f'Calculating fib({n})')
     return 1 if n < 3 else fib(n-1) + fib(n-2)
 
 
