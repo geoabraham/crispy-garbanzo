@@ -1,17 +1,21 @@
-def timed(fn):
-    from time import perf_counter
-    from functools import wraps
+def timed(reps):
 
-    @wraps(fn)
-    def inner(*args, **kwargs):
-        start = perf_counter()
-        result = fn(*args, **kwargs)
-        end = perf_counter()
-        elapsed = end - start
-        print(f'Function {fn.__name__} took {elapsed}')
-        return result
+    def dec(fn):
+        from time import perf_counter
+        from functools import wraps
 
-    return inner
+        @wraps(fn)
+        def inner(*args, **kwargs):
+            total_elapsed = 0
+            for i in range(reps):
+                start = perf_counter()
+                result = fn(*args, **kwargs)
+                total_elapsed += (perf_counter() - start)
+            avg_elapsed = total_elapsed / reps
+            print(f'Function {fn.__name__} took an average of {avg_elapsed}')
+            return result
+        return inner
+    return dec
 
 
 def logged(fn):
@@ -52,7 +56,7 @@ def memoize(fn):
 
 
 @counter
-@timed
+@timed(5)
 @logged
 def fact(n):
     from operator import mul
@@ -62,7 +66,7 @@ def fact(n):
 
 
 @counter
-@timed
+@timed(5)
 @logged
 def compute_powers(n, *, start=1, end):
     # using a list comprehension
@@ -74,6 +78,6 @@ def fib(n):
     return 1 if n < 3 else fib(n-1) + fib(n-2)
 
 
-print(fib(100))
+print(fib(2))
 # fact(20000)
 # compute_powers(2, end=20000)
