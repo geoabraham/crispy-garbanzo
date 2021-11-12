@@ -1,6 +1,6 @@
+from collections import Counter, defaultdict, deque
 import random
 import time
-from functools import wraps
 
 file_name = "players.txt"
 
@@ -267,3 +267,35 @@ pairs = zip(columns, values)
 print(*pairs)
 d = dict(zip(columns, values))
 print(d)
+
+prices = {
+    'GOOG': 490.1,
+    'AA': 23.45,
+    'IBM': 91.1,
+    'MSFT': 34.23
+}
+
+print(prices.items())
+
+portfolio = [
+    ('GOOG', 100, 490.1),
+    ('IBM', 50, 91.1),
+    ('CAT', 150, 83.44),
+    ('IBM', 100, 45.23),
+    ('GOOG', 75, 572.45),
+    ('AA', 50, 23.15)
+]
+
+
+total_shares = Counter()
+for name, shares, price in portfolio:
+    total_shares[name] += shares
+
+print(f'GOOG: {total_shares["GOOG"]}')
+
+holdings = defaultdict(list)
+
+for name, shares, price in portfolio:
+    holdings[name].append((shares, price))
+
+print(f'GOOG: {holdings["GOOG"]}')
