@@ -190,8 +190,6 @@ def time_it(fn, *args, rep=5, **kwargs):
     return (end - start) / rep
 
 
-@logged
-@timed
 def fact(n):
     from operator import mul
     from functools import reduce
@@ -199,8 +197,6 @@ def fact(n):
     return reduce(mul, range(1, n+1))
 
 
-@logged
-@timed
 def compute_powers_1(n, *, start=1, end):
     # using a for loop
     results = []
@@ -209,15 +205,11 @@ def compute_powers_1(n, *, start=1, end):
     return results
 
 
-@logged
-@timed
 def compute_powers_2(n, *, start=1, end):
     # using a list comprehension
     return [n**i for i in range(start, end)]
 
 
-@logged
-@timed
 def compute_powers_3(n, *, start=1, end):
     # using a generator expression
     return (n**i for i in range(start, end))
@@ -252,11 +244,11 @@ def counter(fn):
 
 # list(compute_powers_3(2, end=5))
 
-time_it(compute_powers_1, n=2, end=20000, rep=4)
+# time_it(compute_powers_1, n=2, end=20000, rep=4)
 
-time_it(compute_powers_2, 2, end=20000, rep=4)
+# time_it(compute_powers_2, 2, end=20000, rep=4)
 
-time_it(compute_powers_3, 2, end=20000, rep=4)
+# time_it(compute_powers_3, 2, end=20000, rep=4)
 
 
 # append_file()
@@ -264,3 +256,14 @@ time_it(compute_powers_3, 2, end=20000, rep=4)
 # print("FLUSH!")
 # write_file()
 # read_file()
+
+points = [(1, 4), (10, 40), (23, 14), (5, 6), (7, 8)]
+for x, y in points:
+    print(f'x:{x},y:{y}')
+
+columns = ['name', 'shares', 'price']
+values = ['GOOG', 100, 490.1]
+pairs = zip(columns, values)
+print(*pairs)
+d = dict(zip(columns, values))
+print(d)
