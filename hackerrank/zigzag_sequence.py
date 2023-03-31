@@ -1,4 +1,4 @@
-def findZigZagSequence(a, n):
+def find_zigzag_sequence(a, n):
     a.sort()
     mid = int((n - 1) / 2)
     a[mid], a[n - 1] = a[n - 1], a[mid]
@@ -18,8 +18,8 @@ def findZigZagSequence(a, n):
     return
 
 
-test_cases = int(input())
+test_cases = 1 #int(input())
 for cs in range(test_cases):
     n = 7  # int(input())
     a = [1, 2, 3, 4, 5, 6, 7]  # list(map(int, input().split()))
-    findZigZagSequence(a, n)
+    find_zigzag_sequence(a, n)
