@@ -12,6 +12,7 @@ repository = "https://github.com/geoabraham/crispy-garbanzo"
 [tool.poetry.dependencies]
 python = "^3.7"
 pygame = "^2.3.0"
+adventurelib = "^1.2.1"
 
 [tool.poetry.dev-dependencies]
 

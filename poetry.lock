@@ -1,4 +1,12 @@
 [[package]]
+name = "adventurelib"
+version = "1.2.1"
+description = "Easy text adventures"
+category = "main"
+optional = false
+python-versions = ">=3"
+
+[[package]]
 name = "pygame"
 version = "2.3.0"
 description = "Python Game Development"
@@ -9,9 +17,13 @@ python-versions = ">=3.6"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "0be0ec8884969c4cc8ffa28679caa254ca249e3e2aa1abbd293f4e5d4bddb734"
+content-hash = "f19caffa9d437ab8c8cd3e2a0f1b835235c6717dbf17a780234b3fa0cdeb2656"
 
 [metadata.files]
+adventurelib = [
+    {file = "adventurelib-1.2.1-py3-none-any.whl", hash = "sha256:aac1eba3ce841c13c5aa19c94916f6d75ebad9e5ebd5fb50524acd8733b8b432"},
+    {file = "adventurelib-1.2.1.tar.gz", hash = "sha256:8772d0d9085abf6d6bb0ddea0aa3d8f8228c1cc8a052ff68cd741af27cfdba8e"},
+]
 pygame = [
     {file = "pygame-2.3.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:3e9535cf1af0c6ca38d94e0b492fc41057d7bf05e9bd64d3ed3e216d336d6d11"},
     {file = "pygame-2.3.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:23bd3c3a6d4e8acddee2297d609dbc5953d6ba99b0f0cc5ccc2f567889db3785"},
