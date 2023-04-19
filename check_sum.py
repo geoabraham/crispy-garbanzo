@@ -1,6 +1,6 @@
-def check_sum(num_list):
-    for num in num_list:
-        for other_num in num_list:
+def check_sum(nums):
+    for num in nums:
+        for other_num in nums:
             if num + other_num == 0:
                 return True
     return False

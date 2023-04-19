@@ -1,5 +1,5 @@
 houses = {1: "Gryffindor", 2: "Slytherin", 3: "Hufflepuff", 4: "Ravenclaw"}
-new_houses = {n**2: house + "!" for (n, house) in houses.items()}
+new_houses = {n ** 2: house + "!" for (n, house) in houses.items()}
 print(houses)
 print(new_houses)
 
@@ -22,7 +22,7 @@ print(my_list[0][1][1] + my_list[2])
 
 my_list = (8, 7, 6, 5, 4, 3, 2, 1)
 print(my_list[my_list.index(3)]),
-print(my_list[my_list[my_list[6]-3]-6])
+print(my_list[my_list[my_list[6] - 3] - 6])
 
 my_list = [11, 22, 32, 17, 7]
 print(my_list.pop(-3)),
@@ -40,7 +40,7 @@ my_tuple = ('A', 'b', 'c', 'd')
 my_list.sort()
 counter = 0
 for a in my_tuple:
-    #my_list[counter] += int(a)
+    # my_list[counter] += int(a)
     counter += 1
     break
 print(my_list)

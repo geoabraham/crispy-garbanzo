@@ -23,5 +23,6 @@ def main():
         1: 1, 3: 9, 5: 25, 7: 49}
     print("Challenge 2 works!")
 
+
 if __name__ == "__main__":
     main()

@@ -1,5 +1,4 @@
 def timed(reps):
-
     def dec(fn):
         from time import perf_counter
         from functools import wraps
@@ -14,7 +13,9 @@ def timed(reps):
             avg_elapsed = total_elapsed / reps
             print(f'Function {fn.__name__} took an average of {avg_elapsed}')
             return result
+
         return inner
+
     return dec
 
 
@@ -62,7 +63,7 @@ def fact(n):
     from operator import mul
     from functools import reduce
 
-    return reduce(mul, range(1, n+1))
+    return reduce(mul, range(1, n + 1))
 
 
 @counter
@@ -70,12 +71,12 @@ def fact(n):
 @logged
 def compute_powers(n, *, start=1, end):
     # using a list comprehension
-    return [n**i for i in range(start, end)]
+    return [n ** i for i in range(start, end)]
 
 
 @memoize
 def fib(n):
-    return 1 if n < 3 else fib(n-1) + fib(n-2)
+    return 1 if n < 3 else fib(n - 1) + fib(n - 2)
 
 
 print(fib(2))

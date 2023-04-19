@@ -97,6 +97,7 @@ class Player:
             print("{name} has blackjack!".format(name=self.name))
             return True
         return False
+
     # returns the value of the hand of the player instance
     # uses the lower value of an ace (1) if hand value is too high
 

@@ -67,7 +67,6 @@ star_wars_dict = dict(star_wars_set)  # Converting from set
 print(f'Dict :: Converting from set :: {star_wars_dict}')
 
 k = 6
-kth_max = 0
 test_list = [40, 35, 82, 14, 22, 66, 53]
 test_list.sort()
 kth_max = test_list[-k]
