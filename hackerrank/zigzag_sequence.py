@@ -1,24 +1,24 @@
-def find_zigzag_sequence(a, n):
-    a.sort()
-    mid = int((n - 1) / 2)
-    a[mid], a[n - 1] = a[n - 1], a[mid]
+def find_zigzag_sequence(nums: list, total_num: int):
+    nums.sort()
+    mid = int((total_num - 1) / 2)
+    nums[mid], nums[total_num - 1] = nums[total_num - 1], nums[mid]
 
     st = mid + 1
-    ed = n - 2
+    ed = total_num - 2
     while st <= ed:
-        a[st], a[ed] = a[ed], a[st]
+        nums[st], nums[ed] = nums[ed], nums[st]
         st = st + 1
         ed = ed - 1
 
-    for i in range(n):
-        if i == n - 1:
-            print(a[i])
+    for i in range(total_num):
+        if i == total_num - 1:
+            print(nums[i])
         else:
-            print(a[i], end=' ')
+            print(nums[i], end=' ')
     return
 
 
-test_cases = 1 #int(input())
+test_cases = 1  # int(input())
 for cs in range(test_cases):
     n = 7  # int(input())
     a = [1, 2, 3, 4, 5, 6, 7]  # list(map(int, input().split()))
