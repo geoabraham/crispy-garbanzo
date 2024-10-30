@@ -1,9 +1,6 @@
 from math import pi, pow
 
-
-class Shape:
-    def calculate_area(self) -> float:
-        pass
+from Shape import Shape
 
 
 class Circle(Shape):
