@@ -15,7 +15,7 @@ def count_low_high_my_solution(nums: list):
 
 
 def count_low_high_filter_lambda_solution(nums: list):
-    if (len(nums) == 0):
+    if len(nums) == 0:
         return None
     high_list = list(filter(lambda n: n > 50 or n % 3 == 0, nums))
     low_list = list(filter(lambda n: n <= 50 and not n % 3 == 0, nums))
