@@ -1,3 +1,8 @@
+class Shape:
+    def CalculateArea() -> float:
+        pass
+
+
 class Rectangle:
     def __init__(self, width, height):
         self.width = width
@@ -10,7 +15,7 @@ class Rectangle:
     @width.setter
     def width(self, width):
         if width <= 0:
-            raise ValueError('Width must be positive.')
+            raise ValueError("Width must be positive.")
         else:
             self._width = width
 
@@ -21,7 +26,7 @@ class Rectangle:
     @height.setter
     def height(self, height):
         if height <= 0:
-            raise ValueError('height must be positive.')
+            raise ValueError("height must be positive.")
         else:
             self._height = height
 
@@ -29,7 +34,7 @@ class Rectangle:
         return f'Rectangle: "width"={self.width}, "height"={self.height})'
 
     def __repr__(self):
-        return f'Rectangle({self.width}, {self.height})'
+        return f"Rectangle({self.width}, {self.height})"
 
     def __eq__(self, o):
         if isinstance(o, Rectangle):
