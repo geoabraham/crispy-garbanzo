@@ -2,18 +2,26 @@ import math
 
 
 def main():
-    secret_message = "Súper Secret Message!!"
-    key = 8
+    try:
+        secret_message = "Súper Secret Message!!"
+        key = 8
 
-    encrypted_message = encrypt_message(secret_message, key)
-    assert encrypted_message != secret_message
+        encrypted_message = encrypt_message(secret_message, key)
+        assert encrypted_message != secret_message
 
-    decrypted_message = decrypt_message(encrypted_message, key)
-    assert decrypted_message == secret_message
+        decrypted_message = decrypt_message(encrypted_message, key)
+        assert decrypted_message == secret_message
+
+        print("Encryption and decryption successful.")
+    except ValueError as ve:
+        print(f"ValueError: {ve}")
 
 
 def encrypt_message(message: str, key: int) -> str:
     """Encrypts a given message using columnar transposition cipher."""
+    if not isinstance(key, int) or key <= 0:
+        raise ValueError("Key must be a positive integer.")
+
     encrypted_message = [""] * key
     for column in range(key):
         index = column
@@ -26,6 +34,9 @@ def encrypt_message(message: str, key: int) -> str:
 
 def decrypt_message(encrypted_message: str, key: int) -> str:
     """Decrypts a given encrypted message using columnar transposition cipher."""
+    if not isinstance(key, int) or key <= 0:
+        raise ValueError("Key must be a positive integer.")
+
     columns = math.ceil(len(encrypted_message) / float(key))
     shaded_boxes = (columns * key) - len(encrypted_message)
     decrypted_message = [""] * columns
